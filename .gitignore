@@ -19,3 +19,11 @@
 
 # Go workspace file
 go.work
+
+# Editor configs
+.vscode
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
