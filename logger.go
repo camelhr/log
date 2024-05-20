@@ -11,6 +11,7 @@ import (
 )
 
 type zlWrapper struct {
+	mu      sync.Mutex
 	appName string
 	logger  *zerolog.Logger
 }
@@ -95,6 +96,9 @@ func (w *zlWrapper) BaseLogger() *zerolog.Logger {
 // SetOutput updates the current logger's output to specified io.Writer
 // It also overrides the built-in logger with the updated logger
 func (w *zlWrapper) SetOutput(writer io.Writer) {
+	w.mu.Lock()
+	defer w.mu.Unlock()
+
 	updatedLogger := w.logger.Output(writer)
 	w.logger = &updatedLogger
 	stdlog.SetFlags(0)

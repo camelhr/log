@@ -31,9 +31,12 @@ func TestLogger(t *testing.T) {
 
 		// parse json from the buffer
 		parsedOutputMap := make(map[string]interface{})
-		json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		err := json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		if err != nil {
+			t.Error(err)
+		}
 
-		err := validateLoggedProperties(parsedOutputMap, expectedMessage, appName, "debug")
+		err = validateLoggedProperties(parsedOutputMap, expectedMessage, appName, "debug")
 		if err != nil {
 			t.Error(err)
 		}
@@ -63,9 +66,12 @@ func TestLogger(t *testing.T) {
 
 		// parse json from the buffer
 		parsedOutputMap := make(map[string]interface{})
-		json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		err := json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		if err != nil {
+			t.Error(err)
+		}
 
-		err := validateLoggedProperties(parsedOutputMap, expectedMessage, appName, "info")
+		err = validateLoggedProperties(parsedOutputMap, expectedMessage, appName, "info")
 		if err != nil {
 			t.Error(err)
 		}
@@ -95,9 +101,12 @@ func TestLogger(t *testing.T) {
 
 		// parse json from the buffer
 		parsedOutputMap := make(map[string]interface{})
-		json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		err := json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		if err != nil {
+			t.Error(err)
+		}
 
-		err := validateLoggedProperties(parsedOutputMap, expectedMessage, appName, "warn")
+		err = validateLoggedProperties(parsedOutputMap, expectedMessage, appName, "warn")
 		if err != nil {
 			t.Error(err)
 		}
@@ -127,9 +136,12 @@ func TestLogger(t *testing.T) {
 
 		// parse json from the buffer
 		parsedOutputMap := make(map[string]interface{})
-		json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		err := json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		if err != nil {
+			t.Error(err)
+		}
 
-		err := validateLoggedProperties(parsedOutputMap, expectedMessage, appName, "error")
+		err = validateLoggedProperties(parsedOutputMap, expectedMessage, appName, "error")
 		if err != nil {
 			t.Error(err)
 		}
@@ -165,9 +177,12 @@ func TestLogger(t *testing.T) {
 
 		// parse json from the buffer
 		parsedOutputMap := make(map[string]interface{})
-		json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		err := json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		if err != nil {
+			t.Error(err)
+		}
 
-		err := validateLoggedProperties(parsedOutputMap, expectedMessage, appName, "panic")
+		err = validateLoggedProperties(parsedOutputMap, expectedMessage, appName, "panic")
 		if err != nil {
 			t.Error(err)
 		}
@@ -208,7 +223,10 @@ func TestLogger(t *testing.T) {
 
 		// parse json from the buffer
 		parsedOutputMap := make(map[string]interface{})
-		json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		err = json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		if err != nil {
+			t.Error(err)
+		}
 
 		err = validateLoggedProperties(parsedOutputMap, expectedMessage, appName, "fatal")
 		if err != nil {
@@ -252,9 +270,12 @@ func TestLogger(t *testing.T) {
 
 		// parse json from the buffer
 		parsedOutputMap := make(map[string]interface{})
-		json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		err := json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		if err != nil {
+			t.Error(err)
+		}
 
-		err := validateLoggedProperties(parsedOutputMap, expectedMessage, appName, "info")
+		err = validateLoggedProperties(parsedOutputMap, expectedMessage, appName, "info")
 		if err != nil {
 			t.Error(err)
 		}
@@ -299,9 +320,12 @@ func TestLogger(t *testing.T) {
 
 		// parse json from the buffer
 		parsedOutputMap := make(map[string]interface{})
-		json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		err := json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		if err != nil {
+			t.Error(err)
+		}
 
-		err := validateLoggedProperties(parsedOutputMap, expectedMessage, appName, "info")
+		err = validateLoggedProperties(parsedOutputMap, expectedMessage, appName, "info")
 		if err != nil {
 			t.Error(err)
 		}
@@ -319,7 +343,10 @@ func TestLogger(t *testing.T) {
 		buf.Reset()
 		globalLogger.Info(testMessage, "hello", 7)
 		parsedOutputMap = make(map[string]interface{})
-		json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		err = json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		if err != nil {
+			t.Error(err)
+		}
 
 		err = validateLoggedProperties(parsedOutputMap, expectedMessage, appName, "info")
 		if err != nil {
@@ -363,9 +390,12 @@ func TestLogger(t *testing.T) {
 
 		// parse json from the buffer
 		parsedOutputMap := make(map[string]interface{})
-		json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		err := json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		if err != nil {
+			t.Error(err)
+		}
 
-		err := validateLoggedProperties(parsedOutputMap, expectedMessage, appName, "info")
+		err = validateLoggedProperties(parsedOutputMap, expectedMessage, appName, "info")
 		if err != nil {
 			t.Error(err)
 		}
@@ -387,7 +417,10 @@ func TestLogger(t *testing.T) {
 		buf.Reset()
 		globalLogger.Info(testMessage, "hello", 7)
 		parsedOutputMap = make(map[string]interface{})
-		json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		err = json.Unmarshal(buf.Bytes(), &parsedOutputMap)
+		if err != nil {
+			t.Error(err)
+		}
 
 		err = validateLoggedProperties(parsedOutputMap, expectedMessage, appName, "info")
 		if err != nil {
